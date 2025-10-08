@@ -1,0 +1,29 @@
+<header class="bg-[#111b31] px-8 py-6 rounded-3xl shadow-2xl">
+  <nav
+    class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between"
+  >
+    <div class="flex items-center justify-between md:justify-start">
+      <h1 class="text-4xl font-bold">Clima</h1>
+      <div class="flex gap-2 md:hidden">
+        <i class="fa-regular fa-sun"></i>
+        <i class="fa-regular fa-moon"></i>
+        <i class="fa-regular fa-compass"></i>
+      </div>
+    </div>
+    <div class="relative w-full md:w-auto">
+      <input
+        type="text"
+        placeholder="Buscar ciudad..."
+        class="bg-slate-700 rounded-2xl pl-12 pr-8 py-4 focus:outline-hidden w-full"
+      />
+      <i
+        class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
+      ></i>
+    </div>
+    <div class="hidden md:flex gap-2">
+      <i class="fa-regular fa-sun"></i>
+      <i class="fa-regular fa-moon"></i>
+      <i class="fa-regular fa-compass"></i>
+    </div>
+  </nav>
+</header>
