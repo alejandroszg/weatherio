@@ -14,6 +14,8 @@
       <input
         type="text"
         placeholder="Buscar ciudad..."
+        [(ngModel)]="searchCity"
+        (keyup.enter)="onSearch()"
         class="bg-slate-700 rounded-2xl pl-12 pr-8 py-4 focus:outline-hidden w-full"
       />
       <i
@@ -21,9 +23,9 @@
       ></i>
     </div>
     <div class="hidden md:flex gap-2">
-      <i class="fa-regular fa-sun"></i>
-      <i class="fa-regular fa-moon"></i>
-      <i class="fa-regular fa-compass"></i>
+      <i class="fa-regular fa-sun cursor-pointer"></i>
+      <i class="fa-regular fa-moon cursor-pointer"></i>
+      <i class="fa-regular fa-compass cursor-pointer"></i>
     </div>
   </nav>
 </header>

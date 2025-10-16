@@ -1,0 +1,108 @@
+<div class="bg-[#111b31] rounded-3xl p-8 md:p-12 mb-8 shadow-2xl mt-10">
+  <!-- City Name -->
+  <div class="text-center mb-4 lg:mb-8">
+    <h2 class="text-3xl md:text-4xl font-light drop-shadow-lg text-center">
+      Santiago
+    </h2>
+    <p
+      class="text-6xl md:text-7xl font-extralight mt-2 drop-shadow-lg text-center"
+    >
+      26°
+    </p>
+  </div>
+
+  <!-- Icon (mobile only) -->
+  <div class="flex items-center justify-center mb-6 md:hidden">
+    <i class="fa-regular fa-sun text-8xl drop-shadow-2xl"></i>
+  </div>
+
+  <!-- Mobile: Two Columns -->
+  <div class="grid grid-cols-2 gap-6 md:hidden">
+    <div class="flex flex-col gap-4">
+      <div>
+        <p class="text-sm text-gray-400 font-medium">Temp. Mínima</p>
+        <p class="text-2xl font-light">22°</p>
+      </div>
+      <div>
+        <p class="text-sm text-gray-400 font-medium">Temp. Máxima</p>
+        <p class="text-2xl font-light">28°</p>
+      </div>
+    </div>
+    <div class="flex flex-col gap-4">
+      <div>
+        <p class="text-sm text-gray-400 font-medium">Sensación Térmica</p>
+        <p class="text-2xl font-light">24°</p>
+      </div>
+      <div>
+        <p class="text-sm text-gray-400 font-medium">Prob. Lluvia</p>
+        <p class="text-2xl font-light">10%</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tablet: Icon + Two Columns -->
+  <div class="hidden md:grid md:grid-cols-2 md:gap-8 lg:hidden">
+    <!-- Left: Icon -->
+    <div class="flex items-center justify-center">
+      <i class="fa-regular fa-sun text-9xl drop-shadow-2xl"></i>
+    </div>
+    <!-- Right: Two Inside Columns -->
+    <div class="grid grid-cols-2 gap-6">
+      <div class="flex flex-col gap-4">
+        <div>
+          <p class="text-sm md:text-base text-gray-400 font-medium">
+            Temp. Mínima
+          </p>
+          <p class="text-2xl md:text-3xl font-light">22°</p>
+        </div>
+        <div>
+          <p class="text-sm md:text-base text-gray-400 font-medium">
+            Temp. Máxima
+          </p>
+          <p class="text-2xl md:text-3xl font-light">28°</p>
+        </div>
+      </div>
+      <div class="flex flex-col gap-4">
+        <div>
+          <p class="text-sm md:text-base text-gray-400 font-medium">
+            Sensación Térmica
+          </p>
+          <p class="text-2xl md:text-3xl font-light">24°</p>
+        </div>
+        <div>
+          <p class="text-sm md:text-base text-gray-400 font-medium">
+            Prob. Lluvia
+          </p>
+          <p class="text-2xl md:text-3xl font-light">10%</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Desktop: Three Columns -->
+  <div class="hidden lg:flex items-center justify-center gap-8 xl:gap-16">
+    <div class="flex flex-col gap-4">
+      <div>
+        <p class="text-base text-gray-400 font-medium">Temp. Mínima</p>
+        <p class="text-3xl font-light text-end">22°</p>
+      </div>
+      <div>
+        <p class="text-base text-gray-400 font-medium">Temp. Máxima</p>
+        <p class="text-3xl font-light text-end">28°</p>
+      </div>
+    </div>
+    <div class="flex items-center justify-center">
+      <i class="fa-regular fa-sun text-9xl drop-shadow-2xl"></i>
+    </div>
+    <div class="flex flex-col gap-4">
+      <div>
+        <p class="text-base text-gray-400 font-medium">Sensación Térmica</p>
+        <p class="text-3xl font-light">24°</p>
+      </div>
+      <div>
+        <p class="text-base text-gray-400 font-medium">Prob. Lluvia</p>
+        <p class="text-3xl font-light">10%</p>
+      </div>
+    </div>
+  </div>
+</div>
