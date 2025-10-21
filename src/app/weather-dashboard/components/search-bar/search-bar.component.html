@@ -1,1 +1,35 @@
-<p>search-bar works!</p>,
+<!-- Header -->
+<header class="mb-8 flex justify-between items-center flex-col sm:flex-row">
+  <div>
+    <h1 class="text-4xl font-bold text-gray-800 sm:text-5xl">WeatherIO</h1>
+    <p class="mt-2 text-gray-600">
+      Consulta el clima en cualquier ciudad del mundo
+    </p>
+  </div>
+  <div class="w-full sm:pl-10 lg:px-20 py-4 px-2sm:py-0">
+    <p-iftalabel>
+      <input
+        pInputText
+        id="ciudad"
+        [(ngModel)]="value"
+        autocomplete="off"
+        class="w-full"
+      />
+      <label for="username">Ciudad</label>
+    </p-iftalabel>
+  </div>
+  <div class="hidden lg:block">
+    <ul class="list-none flex">
+      <li>
+        <i
+          class="fa-brands fa-square-linkedin text-4xl cursor-pointer hover:scale-105 duration-200"
+        ></i>
+      </li>
+      <li>
+        <i
+          class="fa-brands fa-square-github text-4xl cursor-pointer hover:scale-105 duration-200"
+        ></i>
+      </li>
+    </ul>
+  </div>
+</header>

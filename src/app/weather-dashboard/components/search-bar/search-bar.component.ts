@@ -1,9 +1,14 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule } from '@angular/forms';
+import { IftaLabelModule } from 'primeng/iftalabel';
 
 @Component({
   selector: 'app-search-bar',
-  imports: [],
+  imports: [FormsModule, InputTextModule, IftaLabelModule],
   templateUrl: './search-bar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SearchBarComponent { }
+export class SearchBarComponent {
+  value: string | undefined;
+}

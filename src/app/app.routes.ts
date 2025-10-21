@@ -3,7 +3,7 @@ import { WeatherDashboardComponent } from './weather-dashboard/weather-dashboard
 
 export const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: WeatherDashboardComponent,
   },
   {
