@@ -1,1 +1,43 @@
-<p>current-weather works!</p>,
+<section class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+  <p-card header="Current weather">
+    <i class="fa-solid fa-temperature-high text-red-400 text-9xl py-4"></i>
+    <h3 class="text-5xl font-bold">29°</h3>
+    <p>Clear</p>
+
+    <p-divider />
+    <p class="mb-2">
+      <i class="fa-solid fa-location-dot"></i> Santiago, Chile.
+    </p>
+    <p><i class="fa-solid fa-calendar-days"></i> October 21, 15:49.</p>
+  </p-card>
+
+  <div class="grid grid-cols-2 gap-4">
+    <!-- UV INDEX -->
+    <p-card class="h-auto" header="UV Index">
+      <i class="fa-solid fa-sun text-4xl text-yellow-400 py-4"></i>
+      <h3 class="text-lg font-semibold">4 Moderado</h3>
+      <p>Usa protección solar hasta las 17:00</p>
+    </p-card>
+
+    <!-- WIND STATUS -->
+    <p-card class="h-auto" header="Wind status">
+      <i class="fa-solid fa-wind text-4xl text-blue-300 py-4"></i>
+      <h3 class="text-lg font-semibold">28km/h</h3>
+      <p>Ráfagas dirección SO</p>
+    </p-card>
+
+    <!-- FEELS LIKE -->
+    <p-card class="h-auto" header="Feels like">
+      <i class="fa-solid fa-temperature-high text-red-400 text-4xl py-4"></i>
+      <h3 class="text-lg font-semibold">31°</h3>
+      <p>Hotter because the sun</p>
+    </p-card>
+
+    <!-- RAINFALL -->
+    <p-card class="h-auto" header="Rainfall">
+      <i class="fa-solid fa-cloud-rain text-4xl text-slate-400 py-4"></i>
+      <h3 class="text-lg font-semibold">0 mm today</h3>
+      <p>14mm expected tomorrow</p>
+    </p-card>
+  </div>
+</section>

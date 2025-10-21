@@ -1,33 +1,21 @@
-<!-- Container principal con ancho máximo y responsive -->
 <main
   class="min-h-screen bg-linear-to-br from-blue-50 to-blue-100 py-8 px-4 sm:px-6 lg:px-8"
 >
-  <!-- Container centrado con ancho máximo -->
   <section class="mx-auto max-w-7xl">
-    <!-- Card container para los componentes hijos -->
     <section class="rounded-2xl bg-white p-4 shadow-xl sm:p-6">
-      <!-- Aquí irán los componentes hijos -->
-
-      <!-- Search Bar Component -->
       <div class="mb-8">
-        <!-- <app-search-bar /> -->
         <app-search-bar></app-search-bar>
       </div>
 
-      <!-- Current Weather Component -->
       <div class="mb-8">
-        <!-- <app-current-weather /> -->
-        <p class="text-gray-500 text-center">Current weather component</p>
+        <app-current-weather></app-current-weather>
       </div>
 
-      <!-- Forecast Component -->
       <div>
-        <!-- <app-forecast /> -->
         <p class="text-gray-500 text-center">Forecast component</p>
       </div>
     </section>
 
-    <!-- Footer -->
     <footer class="mt-8 text-center text-sm text-gray-600">
       <p>Powered by WeatherStack API</p>
     </footer>
