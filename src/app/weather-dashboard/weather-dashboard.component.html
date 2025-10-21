@@ -1,0 +1,43 @@
+<!-- Container principal con ancho máximo y responsive -->
+<div
+  class="min-h-screen bg-linear-to-br from-blue-50 to-blue-100 py-8 px-4 sm:px-6 lg:px-8"
+>
+  <!-- Container centrado con ancho máximo -->
+  <div class="mx-auto max-w-7xl">
+    <!-- Header -->
+    <header class="mb-8 text-center">
+      <h1 class="text-4xl font-bold text-gray-800 sm:text-5xl">WeatherIO</h1>
+      <p class="mt-2 text-gray-600">
+        Consulta el clima en cualquier ciudad del mundo
+      </p>
+    </header>
+
+    <!-- Card container para los componentes hijos -->
+    <div class="rounded-2xl bg-white p-6 shadow-xl sm:p-8 lg:p-10">
+      <!-- Aquí irán los componentes hijos -->
+
+      <!-- Search Bar Component -->
+      <div class="mb-8">
+        <!-- <app-search-bar /> -->
+        <p class="text-gray-500 text-center">Search bar component</p>
+      </div>
+
+      <!-- Current Weather Component -->
+      <div class="mb-8">
+        <!-- <app-current-weather /> -->
+        <p class="text-gray-500 text-center">Current weather component</p>
+      </div>
+
+      <!-- Forecast Component -->
+      <div>
+        <!-- <app-forecast /> -->
+        <p class="text-gray-500 text-center">Forecast component</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-8 text-center text-sm text-gray-600">
+      <p>Powered by WeatherStack API</p>
+    </footer>
+  </div>
+</div>
