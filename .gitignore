@@ -40,3 +40,9 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Environment files with sensitive data (API keys, secrets)
+.environment.ts
+
+# Local documentation files
+WEATHER_SERVICE_GUIDE.md

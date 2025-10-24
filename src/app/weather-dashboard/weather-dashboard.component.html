@@ -4,12 +4,12 @@
   <section class="mx-auto max-w-7xl">
     <section class="rounded-2xl bg-slate-100 p-4 shadow-xl sm:p-6">
       <div class="mb-6">
-        <app-search-bar></app-search-bar>
+        <app-search-bar (sendCity)="onReceivedCity($event)"></app-search-bar>
         <p-divider />
       </div>
 
       <div class="mb-8">
-        <app-current-weather></app-current-weather>
+        <app-current-weather [weatherData]="APIdata"></app-current-weather>
         <p-divider />
       </div>
 
@@ -19,7 +19,7 @@
     </section>
 
     <footer class="mt-8 text-center text-sm text-gray-600">
-      <p>Powered by WeatherStack API</p>
+      <p>Developed by Alejandro Sánchez</p>
     </footer>
   </section>
 </main>
