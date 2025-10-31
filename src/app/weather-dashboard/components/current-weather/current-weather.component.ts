@@ -3,24 +3,48 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  EventEmitter,
   Input,
+  Output,
 } from '@angular/core';
 import { CardModule } from 'primeng/card';
 import { DividerModule } from 'primeng/divider';
 import { WeatherResponse } from '../../../interfaces';
-import { CommonModule } from '@angular/common';
+import { Button } from 'primeng/button';
+import { GeolocationService } from '../../../services/geolocation.service';
 
 @Component({
   selector: 'app-current-weather',
-  imports: [CardModule, DividerModule, CommonModule],
+  imports: [CardModule, DividerModule, Button],
   templateUrl: './current-weather.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CurrentWeatherComponent implements AfterViewInit {
   @Input() weatherData: WeatherResponse | undefined;
+  @Output() locationRequested = new EventEmitter<string>();
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private geolocationService: GeolocationService
+  ) {}
+
   ngAfterViewInit(): void {
     this.cdr.detectChanges();
+  }
+
+  checkLocation() {
+    this.geolocationService.getCurrentLocation().subscribe({
+      next: (coords) => {
+        // Weatherstack API acepta coordenadas en formato "lat,lon"
+        const locationQuery = `${coords.latitude},${coords.longitude}`;
+        this.locationRequested.emit(locationQuery);
+      },
+      error: (error) => {
+        console.error('Error getting location:', error);
+        alert(
+          'No se pudo obtener tu ubicación. Por favor, verifica los permisos del navegador.'
+        );
+      },
+    });
   }
 }

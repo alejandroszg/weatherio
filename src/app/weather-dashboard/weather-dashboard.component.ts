@@ -5,19 +5,13 @@ import {
 } from '@angular/core';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { CurrentWeatherComponent } from './components/current-weather/current-weather.component';
-import { ForecastComponent } from './components/forecast/forecast.component';
 import { Divider } from 'primeng/divider';
 import { WeatherService } from '../services/weather.service';
 import { WeatherResponse } from '../interfaces';
 
 @Component({
   selector: 'app-weather-dashboard',
-  imports: [
-    SearchBarComponent,
-    CurrentWeatherComponent,
-    ForecastComponent,
-    Divider,
-  ],
+  imports: [SearchBarComponent, CurrentWeatherComponent, Divider],
   templateUrl: './weather-dashboard.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

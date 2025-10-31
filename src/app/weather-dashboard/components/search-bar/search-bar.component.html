@@ -4,14 +4,14 @@
 >
   <div class="w-auto">
     <h1
-      class="text-4xl font-bold text-gray-800 sm:text-5xl text-center sm:text-left"
+      class="text-4xl font-bold text-teal-200 sm:text-5xl text-center sm:text-left"
     >
       WeatherIO
     </h1>
-    <p class="mt-2 text-gray-600">Check the weather on any city!</p>
+    <p class="mt-2 text-teal-200">Check the weather on any city!</p>
   </div>
   <form
-    class="flex w-full items-center gap-4 pt-4 sm:py-0"
+    class="flex items-center gap-4 pt-4 sm:py-0 w-full lg:w-3/6"
     (ngSubmit)="searchCity(cityInput.value)"
   >
     <p-iftalabel class="w-full">
@@ -20,19 +20,21 @@
         id="city"
         name="city"
         autocomplete="off"
-        class="w-full"
+        class="w-full lg:w-3/4 lg:mx-auto bg-slate-300! border-slate-800! text-teal-950!"
         #cityInput
+        placeholder="New York"
       />
       <label for="city">City</label>
     </p-iftalabel>
     <p-button
       label="Submit"
       severity="contrast"
-      class="hover:scale-105 duration-200"
+      class="hover:scale-105 duration-200 lg:hidden"
       type="submit"
+      size="large"
     />
   </form>
-  <div class="hidden lg:block">
+  <div class="hidden lg:block w-auto">
     <ul class="list-none flex">
       <li>
         <a

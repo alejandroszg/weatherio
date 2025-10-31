@@ -1,25 +1,50 @@
-<main
-  class="min-h-screen bg-linear-to-br from-blue-50 to-cyan-100 py-8 px-4 sm:px-6 lg:px-8"
->
+<main class="min-h-screen bg-[#12121e] py-8 px-4 sm:px-6 lg:px-8">
   <section class="mx-auto max-w-7xl">
-    <section class="rounded-2xl bg-slate-100 p-4 shadow-xl sm:p-6">
+    <section class="rounded-2xl bg-[#1d1d29] p-4 shadow-xl sm:p-6">
       <div class="mb-6">
         <app-search-bar (sendCity)="onReceivedCity($event)"></app-search-bar>
         <p-divider />
       </div>
 
       <div class="mb-8">
-        <app-current-weather [weatherData]="APIdata"></app-current-weather>
+        <app-current-weather
+          [weatherData]="APIdata"
+          (locationRequested)="onReceivedCity($event)"
+        ></app-current-weather>
         <p-divider />
-      </div>
-
-      <div>
-        <app-forecast></app-forecast>
       </div>
     </section>
 
-    <footer class="mt-8 text-center text-sm text-gray-600">
-      <p>Developed by Alejandro Sánchez</p>
+    <footer class="mt-8">
+      <p class="text-sky-100 text-center">
+        <a
+          href="https://alejandro-sanchez.vercel.app/"
+          target="_blank"
+          class="hover:underline"
+        >
+          Developed by Alejandro Sánchez <i class="fa-solid fa-mug-hot"></i>
+        </a>
+      </p>
+
+      <ul class="list-none flex justify-center lg:hidden mt-4 text-sky-50">
+        <li>
+          <a
+            href="https://www.linkedin.com/in/alejandrosanchezgarcia/"
+            target="_blank"
+          >
+            <i
+              class="fa-brands fa-square-linkedin text-4xl cursor-pointer hover:scale-105 duration-200"
+            ></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/alejandroszg" target="_blank">
+            <i
+              class="fa-brands fa-square-github text-4xl cursor-pointer hover:scale-105 duration-200"
+            ></i>
+          </a>
+        </li>
+      </ul>
     </footer>
   </section>
 </main>
