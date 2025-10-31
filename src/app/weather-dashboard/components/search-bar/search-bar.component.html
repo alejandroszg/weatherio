@@ -1,6 +1,6 @@
 <!-- Header -->
 <header
-  class="flex justify-between items-center flex-col sm:flex-row gap-x-10 mb-4"
+  class="flex justify-between items-center flex-col sm:flex-row gap-x-10 mb-4 p-5 md:p-8 animate-fade-in animate-delay-100"
 >
   <div class="w-auto">
     <h1
@@ -20,6 +20,7 @@
         id="city"
         name="city"
         autocomplete="off"
+        [pAutoFocus]="true"
         class="w-full lg:w-3/4 lg:mx-auto bg-slate-300! border-slate-800! text-teal-950!"
         #cityInput
         placeholder="New York"
@@ -36,7 +37,7 @@
   </form>
   <div class="hidden lg:block w-auto">
     <ul class="list-none flex">
-      <li>
+      <li class="text-teal-300">
         <a
           href="https://www.linkedin.com/in/alejandrosanchezgarcia/"
           target="_blank"
@@ -46,7 +47,7 @@
           ></i>
         </a>
       </li>
-      <li>
+      <li class="text-teal-300">
         <a href="https://github.com/alejandroszg" target="_blank">
           <i
             class="fa-brands fa-square-github text-4xl cursor-pointer hover:scale-105 duration-200"

@@ -1,18 +1,17 @@
 <main class="min-h-screen bg-[#12121e] py-8 px-4 sm:px-6 lg:px-8">
   <section class="mx-auto max-w-7xl">
-    <section class="rounded-2xl bg-[#1d1d29] p-4 shadow-xl sm:p-6">
+    <section class="rounded-2xl bg-[#1d1d29] shadow-xl">
       <div class="mb-6">
         <app-search-bar (sendCity)="onReceivedCity($event)"></app-search-bar>
-        <p-divider />
+        <hr class="border-slate-700" />
       </div>
 
-      <div class="mb-8">
+      <section>
         <app-current-weather
           [weatherData]="APIdata"
           (locationRequested)="onReceivedCity($event)"
         ></app-current-weather>
-        <p-divider />
-      </div>
+      </section>
     </section>
 
     <footer class="mt-8">

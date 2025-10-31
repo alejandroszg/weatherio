@@ -5,13 +5,12 @@ import {
 } from '@angular/core';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { CurrentWeatherComponent } from './components/current-weather/current-weather.component';
-import { Divider } from 'primeng/divider';
 import { WeatherService } from '../services/weather.service';
 import { WeatherResponse } from '../interfaces';
 
 @Component({
   selector: 'app-weather-dashboard',
-  imports: [SearchBarComponent, CurrentWeatherComponent, Divider],
+  imports: [SearchBarComponent, CurrentWeatherComponent],
   templateUrl: './weather-dashboard.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -33,7 +32,6 @@ export class WeatherDashboardComponent {
     this.WeatherService.getCurrentWeather(cityCountry).subscribe({
       next: (data) => {
         this.APIdata = data;
-        console.log(this.APIdata);
         this.cdr.detectChanges();
       },
       error: (error) => {

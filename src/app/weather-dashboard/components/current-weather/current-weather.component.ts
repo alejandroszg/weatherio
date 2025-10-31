@@ -12,10 +12,11 @@ import { DividerModule } from 'primeng/divider';
 import { WeatherResponse } from '../../../interfaces';
 import { Button } from 'primeng/button';
 import { GeolocationService } from '../../../services/geolocation.service';
+import { Chip } from 'primeng/chip';
 
 @Component({
   selector: 'app-current-weather',
-  imports: [CardModule, DividerModule, Button],
+  imports: [CardModule, DividerModule, Button, Chip],
   templateUrl: './current-weather.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -46,5 +47,10 @@ export class CurrentWeatherComponent implements AfterViewInit {
         );
       },
     });
+  }
+
+  searchSuggestedCity(city: string) {
+    console.log(city);
+    this.locationRequested.emit(city);
   }
 }

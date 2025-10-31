@@ -11,8 +11,6 @@ export class WeatherService {
   private readonly apiKey = environment.weatherstack.apiKey;
   private readonly baseUrl = environment.weatherstack.baseUrl;
   private readonly units: string = 'm';
-  private readonly currentWeatherUrl = `${this.baseUrl}/current`;
-  private readonly forecastWeatherUrl = `${this.baseUrl}/forecast`;
 
   constructor(private http: HttpClient) {}
 

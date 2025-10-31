@@ -9,10 +9,17 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { IftaLabelModule } from 'primeng/iftalabel';
 import { ButtonModule } from 'primeng/button';
+import { AutoFocus } from 'primeng/autofocus';
 
 @Component({
   selector: 'app-search-bar',
-  imports: [FormsModule, InputTextModule, IftaLabelModule, ButtonModule],
+  imports: [
+    FormsModule,
+    InputTextModule,
+    IftaLabelModule,
+    ButtonModule,
+    AutoFocus,
+  ],
   templateUrl: './search-bar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -22,7 +29,6 @@ export class SearchBarComponent {
   @Output() sendCity = new EventEmitter<string>();
 
   searchCity(city: string) {
-    console.log(`Enviando ${city}...`);
     this.city = city;
     this.sendCity.emit(this.city);
   }
