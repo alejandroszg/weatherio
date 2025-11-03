@@ -1,7 +1,7 @@
 <main class="min-h-screen bg-[#12121e] py-8 px-4 sm:px-6 lg:px-8">
   <section class="mx-auto max-w-7xl">
     <section class="rounded-2xl bg-[#1d1d29] shadow-xl">
-      <div class="mb-6">
+      <div class="mb-8">
         <app-search-bar (sendCity)="onReceivedCity($event)"></app-search-bar>
         <hr class="border-slate-700" />
       </div>
@@ -9,6 +9,7 @@
       <section>
         <app-current-weather
           [weatherData]="APIdata"
+          [isLoading]="isLoading"
           (locationRequested)="onReceivedCity($event)"
         ></app-current-weather>
       </section>

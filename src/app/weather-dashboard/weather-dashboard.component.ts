@@ -17,9 +17,10 @@ import { WeatherResponse } from '../interfaces';
 export class WeatherDashboardComponent {
   receivedCity: string = '';
   APIdata: WeatherResponse | undefined;
+  isLoading: boolean = false;
 
   constructor(
-    private WeatherService: WeatherService,
+    private weatherService: WeatherService,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -29,9 +30,11 @@ export class WeatherDashboardComponent {
   }
 
   requestCity(cityCountry: string) {
-    this.WeatherService.getCurrentWeather(cityCountry).subscribe({
+    this.isLoading = true;
+    this.weatherService.getCurrentWeather(cityCountry).subscribe({
       next: (data) => {
         this.APIdata = data;
+        this.isLoading = false;
         this.cdr.detectChanges();
       },
       error: (error) => {

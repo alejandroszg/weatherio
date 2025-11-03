@@ -10,12 +10,12 @@ import { routes } from './app.routes';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideAnimationsAsync(),
-    provideHttpClient(), // Habilita HttpClient para peticiones HTTP
+    provideHttpClient(),
     providePrimeNG({
       theme: {
         preset: Aura,
         options: {
-          darkModeSelector: false || 'none',
+          darkModeSelector: true || 'none',
         },
       },
     }),

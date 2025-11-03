@@ -13,15 +13,17 @@ import { WeatherResponse } from '../../../interfaces';
 import { Button } from 'primeng/button';
 import { GeolocationService } from '../../../services/geolocation.service';
 import { Chip } from 'primeng/chip';
+import { Skeleton } from 'primeng/skeleton';
 
 @Component({
   selector: 'app-current-weather',
-  imports: [CardModule, DividerModule, Button, Chip],
+  imports: [CardModule, DividerModule, Button, Chip, Skeleton],
   templateUrl: './current-weather.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CurrentWeatherComponent implements AfterViewInit {
   @Input() weatherData: WeatherResponse | undefined;
+  @Input() isLoading: boolean = false;
   @Output() locationRequested = new EventEmitter<string>();
 
   constructor(
