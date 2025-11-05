@@ -15,10 +15,14 @@ import { GeolocationService } from '../../../services/geolocation.service';
 import { Chip } from 'primeng/chip';
 import { Skeleton } from 'primeng/skeleton';
 import { Message } from 'primeng/message';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ErrorResponse } from '../../../interfaces/error.interface';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-current-weather',
   imports: [CardModule, DividerModule, Button, Chip, Skeleton, Message],
+  providers: [MessageService],
   templateUrl: './current-weather.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -30,7 +34,8 @@ export class CurrentWeatherComponent implements AfterViewInit {
 
   constructor(
     private cdr: ChangeDetectorRef,
-    private geolocationService: GeolocationService
+    private geolocationService: GeolocationService,
+    private messageService: MessageService
   ) {}
 
   ngAfterViewInit(): void {
@@ -40,15 +45,14 @@ export class CurrentWeatherComponent implements AfterViewInit {
   checkLocation() {
     this.geolocationService.getCurrentLocation().subscribe({
       next: (coords) => {
-        // Weatherstack API acepta coordenadas en formato "lat,lon"
         const locationQuery = `${coords.latitude},${coords.longitude}`;
         this.locationRequested.emit(locationQuery);
       },
-      error: (error) => {
-        console.error('Error getting location:', error);
-        alert(
-          'No se pudo obtener tu ubicación. Por favor, verifica los permisos del navegador.'
-        );
+      error: (error: HttpErrorResponse | ErrorResponse) => {
+        this.isLoading = false;
+        this.errorResponse = true;
+        this.showErrorToast(error);
+        this.cdr.detectChanges();
       },
     });
   }
@@ -56,6 +60,14 @@ export class CurrentWeatherComponent implements AfterViewInit {
   searchSuggestedCity(city: string) {
     console.log(city);
     this.locationRequested.emit(city);
+  }
+
+  showErrorToast(error: HttpErrorResponse | ErrorResponse) {
+    this.messageService.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: error.error.error.info,
+    });
   }
 
   reloadPage() {
