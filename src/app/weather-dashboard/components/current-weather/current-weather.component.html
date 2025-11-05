@@ -6,7 +6,7 @@
       alt="Weather icon condition"
       class="w-20 h-20 rounded my-2"
     />
-    <h3 class="text-5xl font-bold">{{ weatherData.current.temperature }}</h3>
+    <h3 class="text-5xl font-bold">{{ weatherData.current.temperature }} °C</h3>
     <p>{{ weatherData.current.weather_descriptions }}</p>
     <hr class="border-slate-700 my-4" />
 
@@ -42,7 +42,7 @@
     <p-card class="h-auto" header="Feels like">
       <i class="fa-solid fa-temperature-high text-red-400 text-4xl py-4"></i>
       <h3 class="text-lg font-semibold">
-        {{ weatherData.current.feelslike }}
+        {{ weatherData.current.feelslike }} °C
       </h3>
     </p-card>
 
