@@ -1,4 +1,28 @@
-@if (weatherData) {
+@if (isLoading) {
+<section
+  class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-8 mb-8 px-8 pb-8"
+>
+  <p-skeleton width="100%" height="9rem" class="mb-6 sm:mb-0" />
+
+  <div class="grid grid-cols-2 gap-4">
+    <p-skeleton width="100%" height="4rem" />
+    <p-skeleton width="100%" height="4rem" />
+    <p-skeleton width="100%" height="4rem" />
+    <p-skeleton width="100%" height="4rem" />
+  </div>
+</section>
+} @else if (errorResponse) {
+<section class="flex items-center justify-center gap-8 mb-8 px-8 pb-8">
+  <p-message severity="error"
+    >We are having some problems, please be patient... 😔</p-message
+  >
+  <p-button
+    label="Try again"
+    class="hover:scale-105 duration-200"
+    (onClick)="reloadPage()"
+  />
+</section>
+} @else if (weatherData) {
 <section class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8 px-8 pb-8">
   <p-card header="Current weather" class="text-teal-200!">
     <img
@@ -55,7 +79,7 @@
     </p-card>
   </div>
 </section>
-} @else if (!isLoading) {
+} @else {
 <section class="flex items-center justify-center flex-col gap-6 py-12 px-4">
   <div class="animate-fade-in animate-delay-200">
     <p-button
@@ -100,19 +124,6 @@
         (click)="searchSuggestedCity('Tokyo')"
       />
     </div>
-  </div>
-</section>
-} @if (isLoading) {
-<section
-  class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-8 mb-8 px-8 pb-8"
->
-  <p-skeleton width="100%" height="9rem" class="mb-6 sm:mb-0" />
-
-  <div class="grid grid-cols-2 gap-4">
-    <p-skeleton width="100%" height="4rem" />
-    <p-skeleton width="100%" height="4rem" />
-    <p-skeleton width="100%" height="4rem" />
-    <p-skeleton width="100%" height="4rem" />
   </div>
 </section>
 }

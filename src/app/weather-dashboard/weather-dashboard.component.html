@@ -7,9 +7,11 @@
       </div>
 
       <section>
+        <p-toast />
         <app-current-weather
           [weatherData]="APIdata"
           [isLoading]="isLoading"
+          [errorResponse]="errorResponse"
           (locationRequested)="onReceivedCity($event)"
         ></app-current-weather>
       </section>

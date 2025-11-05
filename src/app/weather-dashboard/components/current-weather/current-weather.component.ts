@@ -14,16 +14,18 @@ import { Button } from 'primeng/button';
 import { GeolocationService } from '../../../services/geolocation.service';
 import { Chip } from 'primeng/chip';
 import { Skeleton } from 'primeng/skeleton';
+import { Message } from 'primeng/message';
 
 @Component({
   selector: 'app-current-weather',
-  imports: [CardModule, DividerModule, Button, Chip, Skeleton],
+  imports: [CardModule, DividerModule, Button, Chip, Skeleton, Message],
   templateUrl: './current-weather.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CurrentWeatherComponent implements AfterViewInit {
   @Input() weatherData: WeatherResponse | undefined;
   @Input() isLoading: boolean = false;
+  @Input() errorResponse: boolean = false;
   @Output() locationRequested = new EventEmitter<string>();
 
   constructor(
@@ -54,5 +56,9 @@ export class CurrentWeatherComponent implements AfterViewInit {
   searchSuggestedCity(city: string) {
     console.log(city);
     this.locationRequested.emit(city);
+  }
+
+  reloadPage() {
+    window.location.reload();
   }
 }
