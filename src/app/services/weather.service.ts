@@ -1,8 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { WeatherResponse } from '../interfaces';
 import { environment } from '../../../.environment';
+import { RateLimitService } from './rate-limit.service';
+import { CacheService } from './cache.service';
+
+export class RateLimitError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'RateLimitError';
+  }
+}
 
 @Injectable({
   providedIn: 'root',
@@ -12,18 +22,38 @@ export class WeatherService {
   private readonly baseUrl = environment.weatherstack.baseUrl;
   private readonly units: string = 'm';
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private rateLimitService: RateLimitService,
+    private cacheService: CacheService
+  ) {}
 
   getCurrentWeather(city: string): Observable<WeatherResponse> {
-    // HttpParams construye query parameters de forma segura
-    // Resultado: ?access_key=TU_API_KEY&query=NOMBRE_CIUDAD
+    const cachedData = this.cacheService.get(city);
+    if (cachedData) {
+      return of(cachedData);
+    }
+
+    if (!this.rateLimitService.canMakeRequest()) {
+      return throwError(
+        () =>
+          new RateLimitError(
+            'You have reached the query limit. Please try again later.'
+          )
+      );
+    }
+
     const params = new HttpParams()
       .set('access_key', this.apiKey)
       .set('query', city)
       .set('units', this.units);
 
-    // http.get<T>() realiza una petición GET y tipea la respuesta como T
-    // El objeto { params } pasa los parámetros de query a la URL
-    return this.http.get<WeatherResponse>(this.baseUrl, { params });
+    return this.http.get<WeatherResponse>(this.baseUrl, { params }).pipe(
+      map((response) => {
+        this.cacheService.set(city, response);
+        this.rateLimitService.incrementCounter();
+        return response;
+      })
+    );
   }
 }

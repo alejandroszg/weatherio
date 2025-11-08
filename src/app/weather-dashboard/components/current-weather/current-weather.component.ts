@@ -17,12 +17,11 @@ import { Skeleton } from 'primeng/skeleton';
 import { Message } from 'primeng/message';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorResponse } from '../../../interfaces/error.interface';
-import { MessageService } from 'primeng/api';
+import { ToastService } from '../../../services/toast.service';
 
 @Component({
   selector: 'app-current-weather',
   imports: [CardModule, DividerModule, Button, Chip, Skeleton, Message],
-  providers: [MessageService],
   templateUrl: './current-weather.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -35,7 +34,7 @@ export class CurrentWeatherComponent implements AfterViewInit {
   constructor(
     private cdr: ChangeDetectorRef,
     private geolocationService: GeolocationService,
-    private messageService: MessageService
+    private toastService: ToastService
   ) {}
 
   ngAfterViewInit(): void {
@@ -51,7 +50,9 @@ export class CurrentWeatherComponent implements AfterViewInit {
       error: (error: HttpErrorResponse | ErrorResponse) => {
         this.isLoading = false;
         this.errorResponse = true;
-        this.showErrorToast(error);
+        const errorDetail =
+          error.error?.error?.info || 'Error al obtener la ubicación';
+        this.toastService.showError('Error', errorDetail);
         this.cdr.detectChanges();
       },
     });
@@ -60,14 +61,6 @@ export class CurrentWeatherComponent implements AfterViewInit {
   searchSuggestedCity(city: string) {
     console.log(city);
     this.locationRequested.emit(city);
-  }
-
-  showErrorToast(error: HttpErrorResponse | ErrorResponse) {
-    this.messageService.add({
-      severity: 'error',
-      summary: 'Error',
-      detail: error.error.error.info,
-    });
   }
 
   reloadPage() {

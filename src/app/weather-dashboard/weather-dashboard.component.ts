@@ -6,18 +6,16 @@ import {
 
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { CurrentWeatherComponent } from './components/current-weather/current-weather.component';
-import { WeatherService } from '../services/weather.service';
+import { WeatherService, RateLimitError } from '../services/weather.service';
 import { WeatherResponse } from '../interfaces';
 import { ErrorResponse } from '../interfaces/error.interface';
-import { Toast } from 'primeng/toast';
-import { MessageService } from 'primeng/api';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ToastService } from '../services/toast.service';
 
 @Component({
   selector: 'app-weather-dashboard',
-  imports: [SearchBarComponent, CurrentWeatherComponent, Toast],
+  imports: [SearchBarComponent, CurrentWeatherComponent],
   templateUrl: './weather-dashboard.component.html',
-  providers: [MessageService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WeatherDashboardComponent {
@@ -29,7 +27,7 @@ export class WeatherDashboardComponent {
   constructor(
     private weatherService: WeatherService,
     private cdr: ChangeDetectorRef,
-    private messageService: MessageService
+    private toastService: ToastService
   ) {}
 
   onReceivedCity(city: string) {
@@ -47,20 +45,19 @@ export class WeatherDashboardComponent {
         this.errorResponse = false;
         this.cdr.detectChanges();
       },
-      error: (error: HttpErrorResponse | ErrorResponse) => {
+      error: (error: HttpErrorResponse | ErrorResponse | RateLimitError) => {
         this.isLoading = false;
         this.errorResponse = true;
-        this.showErrorToast(error);
+
+        if (error instanceof RateLimitError) {
+          this.toastService.showError('Query limit', error.message);
+        } else {
+          const errorDetail = error.error?.error?.info || 'Unknown error';
+          this.toastService.showError('Error', errorDetail);
+        }
+
         this.cdr.detectChanges();
       },
-    });
-  }
-
-  showErrorToast(error: HttpErrorResponse | ErrorResponse) {
-    this.messageService.add({
-      severity: 'error',
-      summary: 'Error',
-      detail: error.error.error.info,
     });
   }
 }
