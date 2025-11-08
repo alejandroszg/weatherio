@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { WeatherResponse } from '../interfaces';
-import { environment } from '../../../.environment';
+import { environment } from '../../environments/environment';
 import { RateLimitService } from './rate-limit.service';
 import { CacheService } from './cache.service';
 

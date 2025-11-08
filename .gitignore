@@ -42,7 +42,9 @@ testem.log
 Thumbs.db
 
 # Environment files with sensitive data (API keys, secrets)
-.environment.ts
+# Only ignore the root .environment.ts file (your local dev config)
+/.environment.ts
+# The files in src/environments/ should be committed (they have placeholders)
 
 # Local documentation files
 WEATHER_SERVICE_GUIDE.md
