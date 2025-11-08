@@ -6,6 +6,6 @@ export const environment = {
   production: false,
   weatherstack: {
     apiKey: '7c9a7ca75df7063938c75b736cb16da3', // Replace with your local dev key
-    baseUrl: 'http://api.weatherstack.com/current',
+    baseUrl: 'https://api.weatherstack.com/current',
   },
 };
