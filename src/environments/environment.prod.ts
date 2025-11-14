@@ -5,6 +5,6 @@ export const environment = {
   production: true,
   weatherstack: {
     apiKey: '%%WEATHERSTACK_API_KEY%%', // This will be replaced at build time
-    baseUrl: 'http://api.weatherstack.com/current'
+    baseUrl: 'https://api.weatherstack.com/current'
   }
 };
