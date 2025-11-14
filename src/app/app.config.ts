@@ -5,7 +5,7 @@ import { provideRouter } from '@angular/router';
 
 import { providePrimeNG } from 'primeng/config';
 import { MessageService } from 'primeng/api';
-import Aura from '@primeuix/themes/aura';
+import Aura from '@primeng/themes/aura';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
@@ -16,7 +16,7 @@ export const appConfig: ApplicationConfig = {
       theme: {
         preset: Aura,
         options: {
-          darkModeSelector: true || 'none',
+          darkModeSelector: 'system',
         },
       },
     }),

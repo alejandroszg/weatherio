@@ -1,16 +1,16 @@
 <div class="flex items-center gap-3">
   <!-- Día de la semana -->
-  <span class="text-md font-semibold text-gray-800 min-w-20">
+  <span class="text-md font-semibold text-surface-900 dark:text-surface-100 min-w-20">
     {{ day() }}
   </span>
 
   <!-- Temperatura mínima -->
-  <span class="text-sm font-semibold text-gray-700 min-w-12 text-right">
+  <span class="text-sm font-semibold text-surface-700 dark:text-surface-300 min-w-12 text-right">
     {{ tempMin() }}°
   </span>
 
   <!-- Contenedor de la barra -->
-  <div class="relative h-6 w-full rounded-lg bg-gray-200">
+  <div class="relative h-6 w-full rounded-lg bg-surface-200 dark:bg-surface-700">
     <!-- Barra de color posicionada dinámicamente -->
     <div
       class="absolute top-0 h-full rounded-lg transition-all duration-300"
@@ -21,7 +21,7 @@
   </div>
 
   <!-- Temperatura máxima -->
-  <span class="text-sm font-semibold text-gray-700 min-w-12 text-left">
+  <span class="text-sm font-semibold text-surface-700 dark:text-surface-300 min-w-12 text-left">
     {{ tempMax() }}°
   </span>
 </div>

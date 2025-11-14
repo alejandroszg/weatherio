@@ -24,21 +24,21 @@
 </section>
 } @else if (weatherData) {
 <section class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8 px-8 pb-8">
-  <p-card header="Current weather" class="text-teal-200!">
+  <p-card header="Current weather" class="dark:text-teal-300!">
     <img
       [src]="weatherData.current.weather_icons"
       alt="Weather icon condition"
       class="w-20 h-20 rounded my-2"
     />
-    <h3 class="text-5xl font-bold">{{ weatherData.current.temperature }} °C</h3>
-    <p>{{ weatherData.current.weather_descriptions }}</p>
-    <hr class="border-slate-700 my-4" />
+    <h3 class="text-5xl font-bold text-surface-900 dark:text-surface-100">{{ weatherData.current.temperature }} °C</h3>
+    <p class="text-surface-700 dark:text-surface-300">{{ weatherData.current.weather_descriptions }}</p>
+    <hr class="border-surface-200 dark:border-surface-700 my-4" />
 
-    <p class="mb-2">
+    <p class="mb-2 text-surface-700 dark:text-surface-300">
       <i class="fa-solid fa-location-dot"></i> {{ weatherData.location.name }},
       {{ weatherData.location.country }}
     </p>
-    <p>
+    <p class="text-surface-700 dark:text-surface-300">
       <i class="fa-solid fa-calendar-days"></i>
       {{ weatherData.location.localtime }}
     </p>
@@ -46,34 +46,34 @@
 
   <div class="grid grid-cols-2 gap-8">
     <!-- UV INDEX -->
-    <p-card class="h-auto text-teal-200!" header="UV Index">
-      <i class="fa-solid fa-sun text-4xl text-yellow-400 py-4"></i>
-      <h3 class="text-lg font-semibold">
+    <p-card class="h-auto dark:text-teal-300!" header="UV Index">
+      <i class="fa-solid fa-sun text-4xl text-yellow-500 dark:text-yellow-400 py-4"></i>
+      <h3 class="text-lg font-semibold text-surface-900 dark:text-surface-100">
         {{ weatherData.current.uv_index }}
       </h3>
     </p-card>
 
     <!-- WIND STATUS -->
-    <p-card class="h-auto text-teal-200!" header="Wind status">
-      <i class="fa-solid fa-wind text-4xl text-blue-300 py-4"></i>
-      <h3 class="text-lg font-semibold">
+    <p-card class="h-auto dark:text-teal-300!" header="Wind status">
+      <i class="fa-solid fa-wind text-4xl text-blue-500 dark:text-blue-400 py-4"></i>
+      <h3 class="text-lg font-semibold text-surface-900 dark:text-surface-100">
         {{ weatherData.current.wind_speed }}km/h -
         {{ weatherData.current.wind_dir }}
       </h3>
     </p-card>
 
     <!-- FEELS LIKE -->
-    <p-card class="h-auto text-teal-200!" header="Feels like">
-      <i class="fa-solid fa-temperature-high text-red-400 text-4xl py-4"></i>
-      <h3 class="text-lg font-semibold">
+    <p-card class="h-auto dark:text-teal-300!" header="Feels like">
+      <i class="fa-solid fa-temperature-high text-red-500 dark:text-red-400 text-4xl py-4"></i>
+      <h3 class="text-lg font-semibold text-surface-900 dark:text-surface-100">
         {{ weatherData.current.feelslike }} °C
       </h3>
     </p-card>
 
     <!-- RAINFALL -->
-    <p-card class="h-auto text-teal-200!" header="Rainfall">
-      <i class="fa-solid fa-cloud-rain text-4xl text-slate-400 py-4"></i>
-      <h3 class="text-lg font-semibold">
+    <p-card class="h-auto dark:text-teal-300!" header="Rainfall">
+      <i class="fa-solid fa-cloud-rain text-4xl text-surface-500 dark:text-surface-400 py-4"></i>
+      <h3 class="text-lg font-semibold text-surface-900 dark:text-surface-100">
         {{ weatherData.current.precip }} mm today
       </h3>
     </p-card>
@@ -94,32 +94,32 @@
   </div>
 
   <div class="text-center animate-fade-in animate-delay-300 mt-8">
-    <p class="text-teal-200 mb-3 text-md">
+    <p class="text-surface-700 dark:text-surface-300 mb-3 text-md">
       Also you can search any popular cities:
     </p>
     <div class="flex flex-wrap gap-2 justify-center">
       <p-chip
-        class="bg-slate-600! text-teal-200! cursor-pointer hover:scale-105 duration-200"
+        class="bg-surface-200! dark:bg-slate-800! text-surface-900! dark:text-surface-100! cursor-pointer hover:scale-105 duration-200"
         label="New York"
         (click)="searchSuggestedCity('New York')"
       />
       <p-chip
-        class="bg-slate-600! text-teal-200! cursor-pointer hover:scale-105 duration-200"
+        class="bg-surface-200! dark:bg-slate-800! text-surface-900! dark:text-surface-100! cursor-pointer hover:scale-105 duration-200"
         label="Maracay"
         (click)="searchSuggestedCity('Maracay')"
       />
       <p-chip
-        class="bg-slate-600! text-teal-200! cursor-pointer hover:scale-105 duration-200"
+        class="bg-surface-200! dark:bg-slate-800! text-surface-900! dark:text-surface-100! cursor-pointer hover:scale-105 duration-200"
         label="Madrid"
         (click)="searchSuggestedCity('Madrid')"
       />
       <p-chip
-        class="bg-slate-600! text-teal-200! cursor-pointer hover:scale-105 duration-200"
+        class="bg-surface-200! dark:bg-slate-800! text-surface-900! dark:text-surface-100! cursor-pointer hover:scale-105 duration-200"
         label="Santiago"
         (click)="searchSuggestedCity('Santiago')"
       />
       <p-chip
-        class="bg-slate-600! text-teal-200! cursor-pointer hover:scale-105 duration-200"
+        class="bg-surface-200! dark:bg-slate-800! text-surface-900! dark:text-surface-100! cursor-pointer hover:scale-105 duration-200"
         label="Tokyo"
         (click)="searchSuggestedCity('Tokyo')"
       />
